@@ -58,7 +58,7 @@ KsCategoria INT,
 FOREIGN KEY (KsUtenti) REFERENCES utenti(IdUtente),
 FOREIGN KEY (KsMarca) REFERENCES Marca(IdMarca),
 FOREIGN KEY (KsCategoria) REFERENCES Categorie(idCategorie),
-KsMarca INT NOT NULL,
+Misura INT NOT NULL,
 
 );
 
