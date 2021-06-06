@@ -1,0 +1,99 @@
+
+create table Citta( 
+    idCitta INT PRIMARY KEY AUTO_INCREMENT,             
+    nomeCitta VARCHAR(100) NOT NULL,
+    cap INT NOT NULL
+    );
+
+
+
+CREATE TABLE indirizzi( 
+idindirizzi INT PRIMARY KEY AUTO_INCREMENT, 
+Via VARCHAR(40) NOT NULL,							
+numeroCivico INT NOT NULL, 
+KsCitta INT NOT NULL, 
+FOREIGN KEY (KsCitta) REFERENCES Citta(IdCitta) 
+);
+
+
+create table Categorie( 
+    idCategorie INT PRIMARY KEY AUTO_INCREMENT,             
+    Tipo VARCHAR(100) NOT NULL    
+    );
+
+
+
+
+create table utenti(
+    
+  idUtente INT PRIMARY KEY AUTO_INCREMENT,
+  Nome VARCHAR(100) NOT NULL,
+  Cognome VARCHAR(100) NOT NULL,
+  Email VARCHAR(100) NOT NULL, 
+  Telefono VARCHAR(100) NOT NULL,
+  PasswordUtente VARCHAR(100) NOT NULL,
+  ConfermaPassword VARCHAR(100) NOT NULL,
+  KsIndirizzi INT NOT NULL,
+  FOREIGN KEY (KsIndirizzi) REFERENCES indirizzi(idindirizzi)
+    );
+
+
+
+create table marca( 
+idMarca INT PRIMARY KEY AUTO_INCREMENT, 
+Marca VARCHAR(100) NOT NULL 
+);
+
+
+
+CREATE table annunci(
+idAnnuncio INTEGER PRIMARY KEY AUTO_INCREMENT,
+NomeKite VARCHAR(50) NOT NULL,
+AnnoAquisto date NOT NULL,
+Descrizione VARCHAR(255) NOT NULL,
+Costo INT NOT NULL,
+KsUtenti INT NOT NULL,
+KsMarca INT NOT NULL,
+KsCategoria INT,
+FOREIGN KEY (KsUtenti) REFERENCES utenti(IdUtente),
+FOREIGN KEY (KsMarca) REFERENCES Marca(IdMarca),
+FOREIGN KEY (KsCategoria) REFERENCES Categorie(idCategorie)
+
+);
+
+
+
+
+
+CREATE TABLE Immagini( 
+    idImmagine INT PRIMARY KEY AUTO_INCREMENT,             
+    Percorso VARCHAR(255) NOT NULL,
+    KsAnnuncio INT ,
+    FOREIGN KEY (KsAnnuncio) REFERENCES annunci(idAnnuncio)
+ON UPDATE CASCADE
+ON DELETE set NULL
+    
+    
+    );
+
+
+CREATE TABLE Carrello( 
+    idCarrello INT PRIMARY KEY AUTO_INCREMENT,             
+    Datas DATE NOT NULL
+  
+    );
+
+
+CREATE TABLE Carrello_Annunci( 
+    idCarrelloAnnunci INT PRIMARY KEY AUTO_INCREMENT,             
+    KsCarrello INT ,
+    KsAnnuncio INT ,
+FOREIGN KEY (KsCarrello) REFERENCES Carrello(idCarrello)
+ON UPDATE CASCADE
+ON DELETE set NULL,
+    
+FOREIGN KEY (KsAnnuncio) REFERENCES annunci(idAnnuncio)
+ON UPDATE CASCADE
+ON DELETE set NULL
+    );
+
