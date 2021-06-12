@@ -24,6 +24,7 @@ session_start();
 
     <?php
     include './Nav.php';
+    include './alert.php';
     if(isset($_GET['AnnuncioCancellato']) && $_GET['AnnuncioCancellato'] == true){
         $alert= '<div class="alert my-0 alert-success alert-dismissible fade show" role="alert">
             <strong>Messaggio</strong> Annuncio cancellato correttamente.

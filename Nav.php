@@ -38,7 +38,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark skin ">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="App.php">Shop</a>
+                        <a class="nav-link" href="Shop.php">Shop</a>
                     </li>';
                     //diverso da loggato
                   if(!isset($_SESSION['loggedIn'])){
@@ -69,10 +69,11 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark skin ">
                     
               echo '</ul>
                 
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>';
-                    echo ' <a  href="#"> <span class=" mx-3 iconify" data-icon="bi:wind" data-inline="false" data-width="40" data-height="40"></span>
+                <form action="./search.php" method="GET" class="d-flex">
+    
+                    <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                    <button class="mx-1 btn btn btn-primary"><a  class="text-decoration-none text-light">Cerca</a></button>';
+                    echo ' <a  href="meteo.php"> <span class=" mx-3 iconify" data-icon="bi:wind" data-inline="false" data-width="40" data-height="40"></span>
                         </a> ';
                     //INSERIMENTO BUTTON DI LOGOUT
                     if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']==true){

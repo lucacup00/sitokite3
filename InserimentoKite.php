@@ -76,15 +76,15 @@ session_start();
     echo '</select>
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Misura del kite</label>
+        <label for="exampleInputPassword1" class="form-label">Misura</label>
         <input type="text" class="form-control" name="misura" >
     </div>
     <div class="mb-3">
-        <label  class="form-label">Descrizione Del kite</label>
+        <label  class="form-label">Descrizione</label>
         <input type="text" class="form-control" name="Descrizione" >
     </div>
     <div class="mb-3">
-        <label  class="form-label">Costo del kite:</label>
+        <label  class="form-label">Costo</label>
         <input type="number" class="form-control" name="Costo" >
     </div>
     <div class="mb-3">

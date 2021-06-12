@@ -11,8 +11,23 @@ session_start();?>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
 
-    <title>Informazione Kite  </title>
+    <style>
+    .carousel-control-next,
+    .carousel-control-prev
+
+    /*, .carousel-indicators */
+        {
+        filter: invert(100%);
+        width: 60%
+    }
+    </style>
+
+
+    <title>Informazione Kite </title>
 
 </head>
 
@@ -22,6 +37,7 @@ session_start();?>
     <?php
         include './Nav.php';
         include './connessione.php';
+        include 'links.php';
             
         $idAnnuncio=$_GET['IdAnnuncio'];
 
@@ -70,28 +86,72 @@ session_start();?>
         </div>
         <div class="col">
 
-        <?php
+            <?php
         $sql0="SELECT * FROM Immagini where KsAnnuncio=$idAnnuncio";
         $res0=mysqli_query($conn,$sql0);
-
-        $row0=mysqli_num_rows($res0);
-
-        for($i=0;$i<$row0;$i++){
-            echo '<img class=bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="350"
-        height="350" src="./img/'.$Foto.'" ></img>';
-           
-        }
-
-
-        
-       
-
-        
         ?>
-           
+
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+
+                <?php
+                for($i=0;$row0=mysqli_fetch_assoc($res0);$i++){  
+                $Foto=$row0['Percorso'];
+                
+                if($i==0){
+                echo '<div class="carousel-item active" >
+                    <img src="./img/'.$Foto.'" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        
+                    </div>
+                </div>';
                
+                }else{
+                echo '<div class="carousel-item " >
+                    <img src="./img/'.$Foto.'" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        
+                    </div>
+                </div>';
+
+                }
+
+
+
+                }
+              ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
         </div>
+
+
+
+
+
+
+
+
+
+
     </div>
+    </div>
+
+
+
+
+
+
+
+
 
 
 

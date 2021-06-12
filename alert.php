@@ -152,8 +152,8 @@ setTimeout(() => {
 <?php
   }
 }
-elseif(isset($_GET['Modificato']) && $_GET['Modificato'] == true){
-    $alert8= '<div class="alert my-0 alert-success alert-dismissible fade show" role="alert">
+elseif(isset($_GET['Modifica']) && $_GET['Modifica'] == true){
+    $alert9= '<div class="alert my-0 alert-success alert-dismissible fade show" role="alert">
     <strong>Messaggio</strong>Annuncio modificato correttamente.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>';
@@ -162,7 +162,7 @@ elseif(isset($_GET['Modificato']) && $_GET['Modificato'] == true){
     ?>
 <script>
 setTimeout(() => {
-    window.location = "./index.php";
+    window.location = "./imieiAnnunci.php";
 }, 2000)
 </script>
 <?php
